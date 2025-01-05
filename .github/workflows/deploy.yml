@@ -16,6 +16,7 @@ concurrency:
 
 env:
   NODE_ENV: production
+  GITHUB_REPOSITORY: ${{ github.repository }}
 
 jobs:
   build:

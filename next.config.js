@@ -1,12 +1,24 @@
 /** @type {import('next').NextConfig} */
+const isGithubActions = process.env.GITHUB_ACTIONS || false;
+
+let assetPrefix = '';
+let basePath = '';
+
+if (isGithubActions) {
+  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '');
+  assetPrefix = `/${repo}/`;
+  basePath = `/${repo}`;
+}
+
 const nextConfig = {
   output: 'export',
-  basePath: '/msds-dds-6306-fls-1',
-  assetPrefix: '/msds-dds-6306-fls-1/',
+  basePath: basePath,
+  assetPrefix: assetPrefix,
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
-  trailingSlash: true
+  trailingSlash: true,
+  reactStrictMode: true,
 }
 
 module.exports = nextConfig
