@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import DataScienceProfile from './enhanced-profile';
 
 interface SlideProps {
   children: React.ReactNode;
@@ -22,6 +23,10 @@ const Unit1Presentation = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const slides = [
+    {
+      title: "Data Science Profile",
+      content: <DataScienceProfile />
+    },
     {
       title: "Doing Data Science - Unit 1",
       content: (
@@ -128,7 +133,7 @@ const Unit1Presentation = () => {
 
   return (
     <div className="w-full max-w-4xl mx-auto space-y-4">
-      <div className="relative h-96">
+      <div className="relative h-[45rem]">
         <PresentationSlide title={slides[currentSlide].title}>
           {slides[currentSlide].content}
         </PresentationSlide>
