@@ -21,14 +21,15 @@ interface SkillData {
 
 import { TooltipProps } from 'recharts';
 
-type CustomTooltipProps = {
+interface CustomTooltipProps {
   active?: boolean;
   payload?: Array<{
     value: number;
     name: string;
+    dataKey: string;
   }>;
   label?: string;
-};
+}
 
 const DataScienceProfile = () => {
   const [selectedView, setSelectedView] = useState('bar');
