@@ -21,7 +21,7 @@ To deploy:
 
 1. Push your changes to the main branch
 2. GitHub Actions will automatically build and deploy the site
-3. The site will be available at: `https://jonx0037.github.io/MSDS_6306_Doing-Data-Science`
+3. The site will be available at: `https://jonx0037.github.io/msds-dds-6306-fls-1/`
 
 ## Using the Presentation
 
