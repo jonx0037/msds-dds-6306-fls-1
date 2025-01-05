@@ -213,16 +213,16 @@ const Unit1Presentation = () => {
 
   return (
     <div className="w-full max-w-5xl mx-auto space-y-4">
-      <div className="relative h-[40rem]">
+      <div className="relative min-h-[40rem] h-full">
         <PresentationSlide title={slides[currentSlide].title}>
           {slides[currentSlide].content}
         </PresentationSlide>
       </div>
       
-      <div className="flex justify-between items-center px-4 py-2 bg-gray-900 rounded-lg text-white">
+      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex justify-between items-center px-6 py-3 bg-gray-900 rounded-lg text-white shadow-lg z-50 w-[300px]">
         <button 
           onClick={() => handleSlideChange('prev')}
-          className="p-2 rounded-full hover:bg-gray-800 transition-colors"
+          className="p-3 rounded-full hover:bg-gray-800 transition-colors cursor-pointer"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
@@ -231,7 +231,7 @@ const Unit1Presentation = () => {
         </span>
         <button 
           onClick={() => handleSlideChange('next')}
-          className="p-2 rounded-full hover:bg-gray-800 transition-colors"
+          className="p-3 rounded-full hover:bg-gray-800 transition-colors cursor-pointer"
         >
           <ChevronRight className="w-6 h-6" />
         </button>
