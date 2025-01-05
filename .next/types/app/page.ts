@@ -1,4 +1,4 @@
-// File: /Users/jonathanrocha/Desktop/School Projects/SMU/MSDS_6306_Doing-Data-Science/Unit 1/Assignments/src/app/page.tsx
+// File: /Users/jonathanrocha/Desktop/School Projects/SMU/MSDS_6306_Doing-Data-Science/Unit 1/Assignments/msds-dds-6306-fls-1/src/app/page.tsx
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
