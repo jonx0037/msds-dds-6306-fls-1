@@ -18,9 +18,9 @@ const CLTVisualization = () => {
   const sampleSE = populationSD / Math.sqrt(50); // SE for n=50
 
   return (
-    <div className="w-full space-y-6 bg-gray-900 p-6 rounded-lg">
-      <h2 className="text-xl font-bold text-white">Central Limit Theorem Demonstration</h2>
-      <div className="h-96">
+    <div className="w-full space-y-6">
+      <h2 className="text-2xl font-bold text-blue-400 mb-6">Chi-square Distribution Analysis</h2>
+      <div className="h-[28rem] bg-gray-800 p-4 rounded-lg">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={populationData}>
             <CartesianGrid strokeDasharray="3 3" stroke="#444" />
@@ -55,19 +55,19 @@ const CLTVisualization = () => {
           </LineChart>
         </ResponsiveContainer>
       </div>
-      <div className="grid grid-cols-2 gap-4 text-white">
-        <div className="space-y-2">
-          <h3 className="font-semibold text-blue-400">Chi-square(2) Population</h3>
-          <ul className="list-disc pl-6">
+      <div className="grid grid-cols-2 gap-6 mt-8">
+        <div className="bg-gray-800 p-4 rounded-lg">
+          <h3 className="text-xl font-bold text-blue-400 mb-4">Chi-square(2) Population</h3>
+          <ul className="space-y-3 text-gray-300">
             <li>Population Size: 10,000,000</li>
             <li>Mean: {populationMean.toFixed(3)}</li>
             <li>SD: {populationSD.toFixed(3)}</li>
             <li>Heavily right-skewed</li>
           </ul>
         </div>
-        <div className="space-y-2">
-          <h3 className="font-semibold text-blue-400">Sample Means (n=50)</h3>
-          <ul className="list-disc pl-6">
+        <div className="bg-gray-800 p-4 rounded-lg">
+          <h3 className="text-xl font-bold text-green-400 mb-4">Sample Means (n=50)</h3>
+          <ul className="space-y-3 text-gray-300">
             <li>10,000 sample means</li>
             <li>Expected Mean: {populationMean.toFixed(3)}</li>
             <li>Standard Error: {sampleSE.toFixed(3)}</li>

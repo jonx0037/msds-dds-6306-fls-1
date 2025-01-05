@@ -13,11 +13,11 @@ interface SlideProps {
 }
 
 const PresentationSlide = ({ children, title }: SlideProps) => (
-  <Card className="w-full h-full">
-    <CardHeader className="border-b border-gray-700">
-      <CardTitle className="text-blue-400">{title}</CardTitle>
+  <Card className="w-full h-full bg-gray-900 border-gray-700">
+    <CardHeader className="border-b border-gray-700 py-4">
+      <CardTitle className="text-2xl font-bold text-blue-400">{title}</CardTitle>
     </CardHeader>
-    <CardContent>{children}</CardContent>
+    <CardContent className="p-6 overflow-y-auto">{children}</CardContent>
   </Card>
 );
 
@@ -142,14 +142,14 @@ const Unit1Presentation = () => {
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-4">
-      <div className="relative h-[45rem]">
+    <div className="w-full max-w-5xl mx-auto space-y-4">
+      <div className="relative h-[40rem]">
         <PresentationSlide title={slides[currentSlide].title}>
           {slides[currentSlide].content}
         </PresentationSlide>
       </div>
       
-      <div className="flex justify-between items-center px-4 text-white">
+      <div className="flex justify-between items-center px-4 py-2 bg-gray-900 rounded-lg text-white">
         <button 
           onClick={() => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)}
           className="p-2 rounded-full hover:bg-gray-800"

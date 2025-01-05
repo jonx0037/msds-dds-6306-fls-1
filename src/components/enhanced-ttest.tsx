@@ -43,18 +43,18 @@ const TTestVisualization = () => {
   const ciUpper = meanAge + marginError;
 
   return (
-    <div className="w-full space-y-4 bg-gray-900 p-6 rounded-lg">
-      <div className="flex justify-between items-center">
-        <h2 className="text-xl font-bold text-white">Beach Comber Age Analysis</h2>
-        <div className="space-x-2">
+    <div className="w-full space-y-6">
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-2xl font-bold text-blue-400">Beach Comber Age Analysis</h2>
+        <div className="space-x-2 bg-gray-800 p-1 rounded-lg">
           <button 
-            className={`px-4 py-2 rounded ${selectedView === 'bar' ? 'bg-blue-600' : 'bg-gray-700'}`}
+            className={`px-4 py-2 rounded ${selectedView === 'bar' ? 'bg-blue-500 text-white' : 'bg-gray-700 text-gray-300'}`}
             onClick={() => setSelectedView('bar')}
           >
             Bar Chart
           </button>
           <button 
-            className={`px-4 py-2 rounded ${selectedView === 'density' ? 'bg-blue-600' : 'bg-gray-700'}`}
+            className={`px-4 py-2 rounded ${selectedView === 'density' ? 'bg-blue-500 text-white' : 'bg-gray-700 text-gray-300'}`}
             onClick={() => setSelectedView('density')}
           >
             Density
@@ -62,7 +62,7 @@ const TTestVisualization = () => {
         </div>
       </div>
 
-      <div className="h-96">
+      <div className="h-[28rem] bg-gray-800 p-4 rounded-lg">
         <ResponsiveContainer width="100%" height="100%">
           {selectedView === 'bar' ? (
             <BarChart data={barData}>
@@ -97,8 +97,8 @@ const TTestVisualization = () => {
         </ResponsiveContainer>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 mt-4">
-        <Card className="bg-gray-800 border-gray-700">
+      <div className="grid grid-cols-3 gap-6 mt-8">
+        <Card className="bg-gray-800 border-gray-700 hover:bg-gray-750 transition-colors">
           <CardHeader>
             <CardTitle className="text-blue-400">Test Statistics</CardTitle>
           </CardHeader>
@@ -112,7 +112,7 @@ const TTestVisualization = () => {
           </CardContent>
         </Card>
 
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="bg-gray-800 border-gray-700 hover:bg-gray-750 transition-colors">
           <CardHeader>
             <CardTitle className="text-green-400">Confidence Interval</CardTitle>
           </CardHeader>
@@ -125,7 +125,7 @@ const TTestVisualization = () => {
           </CardContent>
         </Card>
 
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="bg-gray-800 border-gray-700 hover:bg-gray-750 transition-colors">
           <CardHeader>
             <CardTitle className="text-purple-400">Effect Size</CardTitle>
           </CardHeader>
