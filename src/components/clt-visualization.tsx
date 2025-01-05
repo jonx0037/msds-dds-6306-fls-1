@@ -2,12 +2,20 @@ import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const CLTVisualization = () => {
-  // Simulated data for visualization
-  const populationData = Array.from({ length: 100 }, (_, i) => ({
-    x: i * 0.1,
-    population: Math.exp(-Math.pow(i * 0.1 - 2, 2) / 2) * Math.pow(i * 0.1, 1),
-    sampleMeans: Math.exp(-Math.pow(i * 0.1 - 2, 2) / 4)
-  }));
+  // Generate chi-square distribution with 2 degrees of freedom
+  const populationData = Array.from({ length: 150 }, (_, i) => {
+    const x = i * 0.2; // Range from 0 to 30 to show right skewness
+    // Chi-square with 2 df probability density function
+    const population = x > 0 ? (Math.exp(-x/2) * x/2) : 0;
+    // Normal approximation for sampling distribution of means (n=50)
+    const sampleMeans = Math.exp(-Math.pow(x - 2, 2) / (2 * 0.08)); // Adjusted for n=50
+    return { x, population, sampleMeans };
+  });
+
+  // Calculate theoretical values
+  const populationMean = 2; // Theoretical mean for chi-square(2)
+  const populationSD = 2; // Theoretical SD for chi-square(2)
+  const sampleSE = populationSD / Math.sqrt(50); // SE for n=50
 
   return (
     <div className="w-full space-y-6 bg-gray-900 p-6 rounded-lg">
@@ -49,19 +57,21 @@ const CLTVisualization = () => {
       </div>
       <div className="grid grid-cols-2 gap-4 text-white">
         <div className="space-y-2">
-          <h3 className="font-semibold text-blue-400">Population Statistics</h3>
+          <h3 className="font-semibold text-blue-400">Chi-square(2) Population</h3>
           <ul className="list-disc pl-6">
-            <li>Mean: 2.001</li>
-            <li>SD: 2.002</li>
-            <li>Right-skewed distribution</li>
+            <li>Population Size: 10,000,000</li>
+            <li>Mean: {populationMean.toFixed(3)}</li>
+            <li>SD: {populationSD.toFixed(3)}</li>
+            <li>Heavily right-skewed</li>
           </ul>
         </div>
         <div className="space-y-2">
-          <h3 className="font-semibold text-blue-400">Sample Mean Statistics</h3>
+          <h3 className="font-semibold text-blue-400">Sample Means (n=50)</h3>
           <ul className="list-disc pl-6">
-            <li>Mean: 1.999</li>
-            <li>SE: 0.282</li>
-            <li>Approximately normal</li>
+            <li>10,000 sample means</li>
+            <li>Expected Mean: {populationMean.toFixed(3)}</li>
+            <li>Standard Error: {sampleSE.toFixed(3)}</li>
+            <li>Approximately normal (CLT)</li>
           </ul>
         </div>
       </div>

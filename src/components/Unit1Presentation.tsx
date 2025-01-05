@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import DataScienceProfile from './enhanced-profile';
+import CLTVisualization from './clt-visualization';
+import TTestVisualization from './enhanced-ttest';
 
 interface SlideProps {
   children: React.ReactNode;
@@ -24,10 +26,6 @@ const Unit1Presentation = () => {
   
   const slides = [
     {
-      title: "Data Science Profile",
-      content: <DataScienceProfile />
-    },
-    {
       title: "Doing Data Science - Unit 1",
       content: (
         <div className="flex flex-col items-center justify-center h-full space-y-8">
@@ -40,6 +38,18 @@ const Unit1Presentation = () => {
           </div>
         </div>
       )
+    },
+    {
+      title: "Data Science Profile",
+      content: <DataScienceProfile />
+    },
+    {
+      title: "Central Limit Theorem Analysis",
+      content: <CLTVisualization />
+    },
+    {
+      title: "Beach Comber T-Test Analysis",
+      content: <TTestVisualization />
     },
     {
       title: "Key Takeaways & Future Directions",
