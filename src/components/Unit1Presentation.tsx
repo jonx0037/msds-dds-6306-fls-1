@@ -10,11 +10,11 @@ interface SlideProps {
 }
 
 const PresentationSlide = ({ children, title }: SlideProps) => (
-  <Card className="w-full h-full bg-gray-900 text-white border-gray-700">
+  <Card className="w-full h-full">
     <CardHeader className="border-b border-gray-700">
-      <CardTitle className="text-2xl text-blue-400">{title}</CardTitle>
+      <CardTitle className="text-blue-400">{title}</CardTitle>
     </CardHeader>
-    <CardContent className="p-6">{children}</CardContent>
+    <CardContent>{children}</CardContent>
   </Card>
 );
 

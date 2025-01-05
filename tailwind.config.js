@@ -6,7 +6,14 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        card: {
+          DEFAULT: 'rgb(17, 24, 39)',
+          foreground: 'rgb(255, 255, 255)',
+        },
+      },
+    },
   },
   plugins: [],
 }
