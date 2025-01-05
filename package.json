@@ -2,14 +2,9 @@
   "name": "unit1-presentation",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jonx0037.github.io/msds-dds-6306-fls-1",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jonx0037/msds-dds-6306-fls-1.git"
-  },
   "scripts": {
     "dev": "next dev",
-    "build": "next build && touch out/.nojekyll",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
