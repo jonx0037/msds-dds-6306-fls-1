@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine } from 'recharts';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, LineChart, Line } from 'recharts';
+import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
+
+interface BarData {
+  patron: string;
+  age: number;
+  density: number;
+}
+
+interface DensityData {
+  x: number;
+  y: number;
+}
 
 const TTestVisualization = () => {
   const [selectedView, setSelectedView] = useState('bar');
@@ -12,14 +23,14 @@ const TTestVisualization = () => {
   const df = n - 1;
   
   // Generate density curve data
-  const densityData = Array.from({ length: 100 }, (_, i) => {
+  const densityData: DensityData[] = Array.from({ length: 100 }, (_, i) => {
     const x = 15 + (i * 30) / 100;
     const y = Math.exp(-Math.pow(x - meanAge, 2) / (2 * Math.pow(stdDev, 2))) / (stdDev * Math.sqrt(2 * Math.PI));
     return { x, y };
   });
 
   // Data for bar chart
-  const barData = patronAges.map((age, index) => ({
+  const barData: BarData[] = patronAges.map((age, index) => ({
     patron: `Patron ${index + 1}`,
     age: age,
     density: densityData.find(d => Math.abs(d.x - age) < 0.3)?.y || 0

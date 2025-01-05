@@ -19,15 +19,15 @@ interface SkillData {
   subskills: Subskill[];
 }
 
-import { TooltipProps } from 'recharts';
+interface TooltipData {
+  value: number;
+  name: string;
+  dataKey: string;
+}
 
 interface CustomTooltipProps {
   active?: boolean;
-  payload?: Array<{
-    value: number;
-    name: string;
-    dataKey: string;
-  }>;
+  payload?: TooltipData[];
   label?: string;
 }
 
@@ -115,10 +115,8 @@ const DataScienceProfile = () => {
     }
   ];
 
-  const CustomTooltip = ({ active, payload, label }: CustomTooltipProps): JSX.Element => {
-    if (!active || !payload || !payload.length) {
-      return <></>;
-    }
+  const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload, label }) => {
+    if (!active || !payload || !payload.length) return <></>;
     
     const skill = skillData.find(s => s.name === label?.replace('\n', ' '));
     

@@ -1,15 +1,35 @@
 import React, { useState } from 'react';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
+
+interface SkillData {
+  date: string;
+  [key: string]: string | number;
+}
+
+interface GrowthMetrics {
+  growth: number;
+  percentGrowth: string;
+}
+
+interface CustomTooltipProps {
+  active?: boolean;
+  payload?: Array<{
+    value: number;
+    name: string;
+    color: string;
+  }>;
+  label?: string;
+}
 
 const SkillTrends = () => {
-  const [timeRange, setTimeRange] = useState('all');
-  const [selectedSkill, setSelectedSkill] = useState(null);
+  const [timeRange, setTimeRange] = useState<'6m' | '1y' | 'all'>('all');
+  const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
 
   // Filter data based on time range
-  const filterDataByRange = (data, range) => {
+  const filterDataByRange = (data: SkillData[], range: string): SkillData[] => {
     const endDate = new Date('2024-01');
-    const ranges = {
+    const ranges: { [key: string]: number } = {
       '6m': 6,
       '1y': 12,
       'all': 999
@@ -24,7 +44,7 @@ const SkillTrends = () => {
   };
 
   // Historical skill data
-  const fullSkillData = [
+  const fullSkillData: SkillData[] = [
     {
       date: 'Jan 2023',
       'Data Viz': 4,
@@ -71,22 +91,22 @@ const SkillTrends = () => {
   // Filter data based on selected time range
   const skillData = filterDataByRange(fullSkillData, timeRange);
 
-  const calculateGrowth = (skill) => {
-    const firstValue = skillData[0][skill];
-    const lastValue = skillData[skillData.length - 1][skill];
+  const calculateGrowth = (skill: string): GrowthMetrics => {
+    const firstValue = skillData[0][skill] as number;
+    const lastValue = skillData[skillData.length - 1][skill] as number;
     const growth = lastValue - firstValue;
     const percentGrowth = ((lastValue - firstValue) / firstValue * 100).toFixed(1);
     return { growth, percentGrowth };
   };
 
-  const getGrowthColor = (growth) => {
+  const getGrowthColor = (growth: number): string => {
     if (growth > 0) return 'text-green-400';
     if (growth < 0) return 'text-red-400';
     return 'text-gray-400';
   };
 
-  const CustomTooltip = ({ active, payload, label }) => {
-    if (!active || !payload || !payload.length) return null;
+  const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload, label }) => {
+    if (!active || !payload || !payload.length) return <></>;
     return (
       <div className="bg-gray-800 p-3 rounded border border-gray-700">
         <p className="text-white font-medium">{label}</p>
@@ -110,7 +130,7 @@ const SkillTrends = () => {
               className={`px-4 py-2 rounded ${
                 timeRange === range ? 'bg-blue-600' : 'bg-gray-700'
               } text-white`}
-              onClick={() => setTimeRange(range)}
+              onClick={() => setTimeRange(range as '6m' | '1y' | 'all')}
             >
               {range === '6m' ? '6 Months' : range === '1y' ? '1 Year' : 'All Time'}
             </button>
@@ -143,7 +163,7 @@ const SkillTrends = () => {
                     top: '-10px',
                     color: '#fff'
                   }}
-                  onClick={(data) => setSelectedSkill(data.dataKey)}
+                  onClick={(data) => setSelectedSkill(data.dataKey as string)}
                 />
                 {skills.map((skill, index) => (
                   <Line
