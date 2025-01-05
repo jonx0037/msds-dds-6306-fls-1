@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build && touch out/.nojekyll",
+    "build": "next build && touch out/.nojekyll && cp -r .github out/",
     "start": "next start",
     "lint": "next lint"
   },

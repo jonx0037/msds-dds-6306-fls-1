@@ -16,7 +16,6 @@ concurrency:
 
 env:
   NODE_ENV: production
-  GITHUB_REPOSITORY: ${{ github.repository }}
 
 jobs:
   build:
@@ -35,15 +34,14 @@ jobs:
         uses: actions/configure-pages@v4
         
       - name: Install dependencies
-        run: |
-          npm ci
-          npm list next
+        run: npm ci
         
       - name: Build with Next.js
+        env:
+          NEXT_PUBLIC_BASE_PATH: /msds-dds-6306-fls-1
         run: |
           npm run build
-          ls -la out/
-        
+          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:

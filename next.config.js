@@ -1,19 +1,8 @@
 /** @type {import('next').NextConfig} */
-const isGithubActions = process.env.GITHUB_ACTIONS || false;
-
-let assetPrefix = '';
-let basePath = '';
-
-if (isGithubActions) {
-  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '');
-  assetPrefix = `/${repo}/`;
-  basePath = `/${repo}`;
-}
-
 const nextConfig = {
   output: 'export',
-  basePath: basePath,
-  assetPrefix: assetPrefix,
+  basePath: process.env.GITHUB_ACTIONS ? '/msds-dds-6306-fls-1' : '',
+  assetPrefix: process.env.GITHUB_ACTIONS ? '/msds-dds-6306-fls-1/' : '',
   images: {
     unoptimized: true,
   },
