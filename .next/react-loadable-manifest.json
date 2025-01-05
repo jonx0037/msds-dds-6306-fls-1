@@ -1,1 +1,26 @@
-{}
+{
+  "components/Unit1Presentation.tsx -> ./clt-visualization": {
+    "id": 9849,
+    "files": [
+      "static/chunks/582.63ba912b299befe9.js",
+      "static/chunks/156.36a5c58d8c9264c8.js",
+      "static/chunks/849.c6b9c3fc6012ccef.js"
+    ]
+  },
+  "components/Unit1Presentation.tsx -> ./enhanced-profile": {
+    "id": 7969,
+    "files": [
+      "static/chunks/582.63ba912b299befe9.js",
+      "static/chunks/21.3d42ee86a04b866e.js",
+      "static/chunks/969.b7ed95657abfaec0.js"
+    ]
+  },
+  "components/Unit1Presentation.tsx -> ./enhanced-ttest": {
+    "id": 7403,
+    "files": [
+      "static/chunks/582.63ba912b299befe9.js",
+      "static/chunks/156.36a5c58d8c9264c8.js",
+      "static/chunks/403.c9bd24f4c948a9bd.js"
+    ]
+  }
+}
