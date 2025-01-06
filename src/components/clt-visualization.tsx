@@ -20,24 +20,42 @@ const CLTVisualization = () => {
   return (
     <div className="w-full space-y-6">
       <h2 className="text-2xl font-bold text-blue-400 mb-6">Chi-square Distribution Analysis</h2>
-      <div className="h-[28rem] bg-gray-800 p-4 rounded-lg">
+      <div className="h-[32rem] bg-gray-800 p-4 rounded-lg">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={populationData}>
+          <LineChart 
+            data={populationData}
+            margin={{ top: 20, right: 30, left: 60, bottom: 60 }}
+          >
             <CartesianGrid strokeDasharray="3 3" stroke="#444" />
             <XAxis 
               dataKey="x" 
               stroke="#fff"
-              label={{ value: 'Value', position: 'bottom', fill: '#fff' }}
+              label={{ 
+                value: 'Value', 
+                position: 'bottom', 
+                fill: '#fff',
+                offset: 45
+              }}
             />
             <YAxis 
               stroke="#fff"
-              label={{ value: 'Density', angle: -90, position: 'left', fill: '#fff' }}
+              label={{ 
+                value: 'Density', 
+                angle: -90, 
+                position: 'left', 
+                fill: '#fff',
+                offset: -45
+              }}
             />
             <Tooltip 
               contentStyle={{ backgroundColor: '#1a1a1a', border: '1px solid #333' }}
               labelStyle={{ color: '#fff' }}
             />
-            <Legend />
+            <Legend 
+              verticalAlign="top"
+              height={36}
+              wrapperStyle={{ paddingBottom: '20px' }}
+            />
             <Line 
               type="monotone" 
               dataKey="population" 

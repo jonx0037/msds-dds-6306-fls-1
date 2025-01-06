@@ -93,6 +93,7 @@ const Unit1Presentation = () => {
           <h1 className="text-4xl font-bold text-blue-400">DDS 6306: Unit 1 Analysis</h1>
           <h2 className="text-2xl text-gray-300">For Live Session Presentation</h2>
           <div className="text-gray-400 text-center space-y-2">
+            <p>Jonathan A. Rocha</p>
             <p>Master of Science in Data Science</p>
             <p>Southern Methodist University</p>
             <p>January 2025</p>

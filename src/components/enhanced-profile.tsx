@@ -237,7 +237,10 @@ const DataScienceProfile = () => {
       <div className="flex justify-between items-start">
         <div>
           <h2 className="text-2xl font-bold mb-1">Data Science Profile Analysis</h2>
-          <p className="text-sm text-gray-400">Click on any skill for detailed breakdown</p>
+          <div className="space-y-1">
+            <p className="text-sm text-gray-400">Click on any skill for detailed breakdown</p>
+            <p className="text-xs text-gray-500 italic">* Industry Benchmark data shown for educational purposes only</p>
+          </div>
         </div>
         <div className="space-x-2">
           {['bar', 'radar'].map(view => (
