@@ -34,6 +34,10 @@ const CLTVisualization = () => {
     {
       src: "/msds-dds-6306-fls-1/rstudio-produced-images/combined_clt.png",
       alt: "Combined CLT Analysis"
+    },
+    {
+      src: "/msds-dds-6306-fls-1/rstudio-produced-images/chi-square-analysis-chatgpt4o.jpg",
+      alt: "ChatGPT Chi-square Distribution Analysis"
     }
   ];
 
@@ -55,7 +59,7 @@ const CLTVisualization = () => {
           >
             View detailed analysis on RPubs →
           </a>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-2 gap-2">
             {images.map((image, index) => (
               <img 
                 key={index}
