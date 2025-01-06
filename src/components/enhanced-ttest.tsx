@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, LineChart, Line } from 'recharts';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
+import ImageModal from './ui/image-modal';
 
 interface BarData {
   patron: string;
@@ -15,6 +16,9 @@ interface DensityData {
 
 const TTestVisualization = () => {
   const [selectedView, setSelectedView] = useState('bar');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState('');
+
   const patronAges = [25, 19, 37, 29, 40, 28, 31];
   const meanAge = patronAges.reduce((a, b) => a + b) / patronAges.length;
   const n = patronAges.length;
@@ -63,7 +67,11 @@ const TTestVisualization = () => {
           <img 
             src="/msds-dds-6306-fls-1/rstudio-produced-images/ttest_plot.png" 
             alt="RStudio T-Test Analysis"
-            className="w-full h-auto rounded-lg border border-gray-700"
+            className="w-full h-auto rounded-lg border border-gray-700 cursor-pointer transition-transform hover:scale-105"
+            onClick={() => {
+              setSelectedImage("/msds-dds-6306-fls-1/rstudio-produced-images/ttest_plot.png");
+              setIsModalOpen(true);
+            }}
           />
         </div>
       </div>
@@ -161,6 +169,13 @@ const TTestVisualization = () => {
           </CardContent>
         </Card>
       </div>
+
+      <ImageModal
+        isOpen={isModalOpen}
+        imageUrl={selectedImage}
+        altText="RStudio T-Test Analysis"
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };
