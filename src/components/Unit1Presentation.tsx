@@ -94,7 +94,7 @@ const Unit1Presentation = () => {
           <h2 className="text-2xl text-gray-300">For Live Session Presentation</h2>
           <div className="text-gray-400 text-center space-y-2">
             <p>Jonathan A. Rocha</p>
-            <p>Master of Science in Data Science</p>
+            <p>DS-6306 Doing Data Science - 401</p>
             <p>Southern Methodist University</p>
             <p>January 2025</p>
           </div>
