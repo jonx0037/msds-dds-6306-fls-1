@@ -5,6 +5,7 @@ import {
   CartesianGrid, XAxis, YAxis, Tooltip, Legend
 } from 'recharts';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
+import ImageModal from './ui/image-modal';
 
 interface Subskill {
   name: string;
@@ -34,6 +35,8 @@ interface CustomTooltipProps {
 const DataScienceProfile = () => {
   const [selectedView, setSelectedView] = useState('bar');
   const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState('');
 
   const skillData: SkillData[] = [
     {
@@ -243,9 +246,13 @@ const DataScienceProfile = () => {
           <h3 className="text-xl font-bold text-green-400 mb-4">RStudio Analysis</h3>
           <p className="text-sm text-gray-400 mb-4">Static analysis from R environment</p>
           <img 
-            src="/msds-dds-6306-fls-1/rstudio-produced-images/ds_profile.png" 
+            src="/rstudio-produced-images/ds_profile.png" 
             alt="RStudio Data Science Profile"
-            className="w-full h-auto rounded-lg border border-gray-700"
+            className="w-full h-auto rounded-lg border border-gray-700 cursor-pointer transition-transform hover:scale-105"
+            onClick={() => {
+              setSelectedImage("/rstudio-produced-images/ds_profile.png");
+              setIsModalOpen(true);
+            }}
           />
           <a 
             href="https://rpubs.com/jonx03/ds-profile"
@@ -344,6 +351,13 @@ const DataScienceProfile = () => {
           </CardContent>
         </Card>
       </div>
+
+      <ImageModal
+        isOpen={isModalOpen}
+        imageUrl={selectedImage}
+        altText="RStudio Data Science Profile"
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };
