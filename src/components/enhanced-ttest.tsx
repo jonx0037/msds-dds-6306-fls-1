@@ -44,6 +44,29 @@ const TTestVisualization = () => {
 
   return (
     <div className="w-full space-y-6">
+      <div className="grid grid-cols-2 gap-6 mb-6">
+        <div className="bg-gray-800 p-4 rounded-lg">
+          <h3 className="text-xl font-bold text-blue-400 mb-4">Interactive Analysis</h3>
+          <p className="text-sm text-gray-400 mb-4">Dynamic t-test visualization with real-time statistics</p>
+        </div>
+        <div className="bg-gray-800 p-4 rounded-lg">
+          <h3 className="text-xl font-bold text-green-400 mb-4">RStudio Analysis</h3>
+          <p className="text-sm text-gray-400 mb-2">Comprehensive t-test analysis in R</p>
+          <a 
+            href="https://rpubs.com/jonx03/beach-comber-ttest"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:text-blue-300 text-sm mb-4 block"
+          >
+            View detailed analysis on RPubs →
+          </a>
+          <img 
+            src="/msds-dds-6306-fls-1/rstudio-produced-images/ttest_plot.png" 
+            alt="RStudio T-Test Analysis"
+            className="w-full h-auto rounded-lg border border-gray-700"
+          />
+        </div>
+      </div>
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold text-blue-400">Beach Comber Age Analysis</h2>
         <div className="space-x-2 bg-gray-800 p-1 rounded-lg">

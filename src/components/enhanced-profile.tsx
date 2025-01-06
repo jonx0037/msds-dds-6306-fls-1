@@ -233,7 +233,22 @@ const DataScienceProfile = () => {
   };
 
   return (
-    <div className="w-full space-y-4 bg-gray-900 text-white p-6 rounded-lg">
+    <div className="w-full space-y-6 bg-gray-900 text-white p-6 rounded-lg">
+      <div className="grid grid-cols-2 gap-6 mb-4">
+        <div className="bg-gray-800 p-4 rounded-lg">
+          <h3 className="text-xl font-bold text-blue-400 mb-4">Interactive Analysis</h3>
+          <p className="text-sm text-gray-400 mb-4">Dynamic visualization with detailed breakdowns</p>
+        </div>
+        <div className="bg-gray-800 p-4 rounded-lg">
+          <h3 className="text-xl font-bold text-green-400 mb-4">RStudio Analysis</h3>
+          <p className="text-sm text-gray-400 mb-4">Static analysis from R environment</p>
+          <img 
+            src="/msds-dds-6306-fls-1/rstudio-produced-images/ds_profile.png" 
+            alt="RStudio Data Science Profile"
+            className="w-full h-auto rounded-lg border border-gray-700"
+          />
+        </div>
+      </div>
       <div className="flex justify-between items-start">
         <div>
           <h2 className="text-2xl font-bold mb-1">Data Science Profile Analysis</h2>
