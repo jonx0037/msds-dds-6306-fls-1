@@ -247,6 +247,14 @@ const DataScienceProfile = () => {
             alt="RStudio Data Science Profile"
             className="w-full h-auto rounded-lg border border-gray-700"
           />
+          <a 
+            href="https://rpubs.com/jonx03/ds-profile"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-2 text-blue-400 hover:text-blue-300 text-sm"
+          >
+            View on RPubs →
+          </a>
         </div>
       </div>
       <div className="flex justify-between items-start">
