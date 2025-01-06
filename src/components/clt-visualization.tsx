@@ -34,7 +34,7 @@ const CLTVisualization = () => {
                 value: 'Value', 
                 position: 'bottom', 
                 fill: '#fff',
-                offset: 48
+                offset: 45
               }}
             />
             <YAxis 
@@ -44,7 +44,7 @@ const CLTVisualization = () => {
                 angle: -90, 
                 position: 'left', 
                 fill: '#fff',
-                offset: -65
+                offset: -75
               }}
             />
             <Tooltip 
