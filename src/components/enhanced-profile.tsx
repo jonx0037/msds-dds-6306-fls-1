@@ -246,11 +246,11 @@ const DataScienceProfile = () => {
           <h3 className="text-xl font-bold text-green-400 mb-4">RStudio Analysis</h3>
           <p className="text-sm text-gray-400 mb-4">Static analysis from R environment</p>
           <img 
-            src="/rstudio-produced-images/ds_profile.png" 
+            src="/msds-dds-6306-fls-1/rstudio-produced-images/ds_profile.png" 
             alt="RStudio Data Science Profile"
             className="w-full h-auto rounded-lg border border-gray-700 cursor-pointer transition-transform hover:scale-105"
             onClick={() => {
-              setSelectedImage("/rstudio-produced-images/ds_profile.png");
+              setSelectedImage("/msds-dds-6306-fls-1/rstudio-produced-images/ds_profile.png");
               setIsModalOpen(true);
             }}
           />
