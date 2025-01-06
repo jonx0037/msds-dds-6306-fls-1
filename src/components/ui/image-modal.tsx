@@ -12,11 +12,11 @@ const ImageModal: React.FC<ImageModalProps> = ({ isOpen, imageUrl, altText, onCl
 
   return (
     <div 
-      className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[100] p-4"
+      className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[100] p-4 overflow-y-auto"
       onClick={onClose}
     >
       <div 
-        className="relative max-w-4xl w-full bg-gray-900 rounded-lg p-2"
+        className="relative max-w-4xl w-full bg-gray-900 rounded-lg p-2 my-8"
         onClick={e => e.stopPropagation()}
       >
         <button
@@ -29,7 +29,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ isOpen, imageUrl, altText, onCl
         <img
           src={imageUrl}
           alt={altText}
-          className="w-full h-auto rounded-lg"
+          className="w-full max-h-[80vh] object-contain rounded-lg"
         />
       </div>
     </div>
