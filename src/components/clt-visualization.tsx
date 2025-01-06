@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import ImageModal from './ui/image-modal';
 
 const CLTVisualization = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState('');
+  const [selectedAlt, setSelectedAlt] = useState('');
+
   // Generate chi-square distribution with 2 degrees of freedom
   const populationData = Array.from({ length: 150 }, (_, i) => {
     const x = i * 0.2; // Range from 0 to 30 to show right skewness
@@ -16,6 +21,21 @@ const CLTVisualization = () => {
   const populationMean = 2; // Theoretical mean for chi-square(2)
   const populationSD = 2; // Theoretical SD for chi-square(2)
   const sampleSE = populationSD / Math.sqrt(50); // SE for n=50
+
+  const images = [
+    {
+      src: "/msds-dds-6306-fls-1/rstudio-produced-images/clt_population.png",
+      alt: "CLT Population Distribution"
+    },
+    {
+      src: "/msds-dds-6306-fls-1/rstudio-produced-images/clt_sampling.png",
+      alt: "CLT Sampling Distribution"
+    },
+    {
+      src: "/msds-dds-6306-fls-1/rstudio-produced-images/combined_clt.png",
+      alt: "Combined CLT Analysis"
+    }
+  ];
 
   return (
     <div className="w-full space-y-6">
@@ -36,21 +56,19 @@ const CLTVisualization = () => {
             View detailed analysis on RPubs →
           </a>
           <div className="grid grid-cols-3 gap-2">
-            <img 
-              src="/msds-dds-6306-fls-1/rstudio-produced-images/clt_population.png" 
-              alt="CLT Population Distribution"
-              className="w-full h-auto rounded border border-gray-700"
-            />
-            <img 
-              src="/msds-dds-6306-fls-1/rstudio-produced-images/clt_sampling.png" 
-              alt="CLT Sampling Distribution"
-              className="w-full h-auto rounded border border-gray-700"
-            />
-            <img 
-              src="/msds-dds-6306-fls-1/rstudio-produced-images/combined_clt.png" 
-              alt="Combined CLT Analysis"
-              className="w-full h-auto rounded border border-gray-700"
-            />
+            {images.map((image, index) => (
+              <img 
+                key={index}
+                src={image.src}
+                alt={image.alt}
+                className="w-full h-auto rounded border border-gray-700 cursor-pointer transition-transform hover:scale-105"
+                onClick={() => {
+                  setSelectedImage(image.src);
+                  setSelectedAlt(image.alt);
+                  setIsModalOpen(true);
+                }}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -128,6 +146,13 @@ const CLTVisualization = () => {
           </ul>
         </div>
       </div>
+
+      <ImageModal
+        isOpen={isModalOpen}
+        imageUrl={selectedImage}
+        altText={selectedAlt}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };
