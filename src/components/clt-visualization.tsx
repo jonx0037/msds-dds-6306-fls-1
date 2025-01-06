@@ -24,7 +24,7 @@ const CLTVisualization = () => {
         <ResponsiveContainer width="100%" height="100%">
           <LineChart 
             data={populationData}
-            margin={{ top: 20, right: 30, left: 70, bottom: 70 }}
+            margin={{ top: 20, right: 30, left: 80, bottom: 70 }}
           >
             <CartesianGrid strokeDasharray="3 3" stroke="#444" />
             <XAxis 
@@ -34,7 +34,7 @@ const CLTVisualization = () => {
                 value: 'Value', 
                 position: 'bottom', 
                 fill: '#fff',
-                offset: 50
+                offset: 48
               }}
             />
             <YAxis 
@@ -44,7 +44,7 @@ const CLTVisualization = () => {
                 angle: -90, 
                 position: 'left', 
                 fill: '#fff',
-                offset: -55
+                offset: -65
               }}
             />
             <Tooltip 
