@@ -44,7 +44,7 @@ const CLTVisualization = () => {
                 angle: -90, 
                 position: 'left', 
                 fill: '#fff',
-                offset: -90
+                offset: 20
               }}
             />
             <Tooltip 
