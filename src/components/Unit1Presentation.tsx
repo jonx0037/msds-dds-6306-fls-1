@@ -72,7 +72,7 @@ const PresentationSlide = ({ children, title }: SlideProps) => (
     <CardHeader className="border-b border-gray-700 py-4">
       <CardTitle className="text-2xl font-bold text-blue-400">{title}</CardTitle>
     </CardHeader>
-    <CardContent className="p-6 overflow-y-auto">
+    <CardContent className="p-6 pb-20 overflow-y-auto">
       <ErrorBoundary>
         <Suspense fallback={<LoadingState />}>
           {children}
