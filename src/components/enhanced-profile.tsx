@@ -135,7 +135,7 @@ const DataScienceProfile = () => {
         return (
           <BarChart 
             data={skillData} 
-            margin={{ top: 40, right: 40, left: 40, bottom: 100 }}
+            margin={{ top: 40, right: 40, left: 40, bottom: 120 }}
             barSize={40}
           >
             <CartesianGrid 
@@ -148,8 +148,8 @@ const DataScienceProfile = () => {
               stroke="#fff" 
               angle={45}
               interval={0}
-              tickMargin={33}
-              height={60}
+              tickMargin={45}
+              height={80}
               tick={{ fill: '#fff', fontSize: 12 }}
             />
             <YAxis 
