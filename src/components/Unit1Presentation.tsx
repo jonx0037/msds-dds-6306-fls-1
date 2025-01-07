@@ -198,6 +198,10 @@ const Unit1Presentation = () => {
         <div className="flex flex-col items-center justify-center h-full space-y-8">
           <h2 className="text-3xl font-bold text-blue-400">Questions & Discussion</h2>
           <p className="text-xl text-gray-300">Thank you for your attention</p>
+          <div className="text-gray-300 text-center space-y-2">
+            <p>Email: <a href="mailto:jarocha@smu.edu" className="text-blue-400 hover:underline">jarocha@smu.edu</a></p>
+            <p>GitHub: <a href="https://github.com/jonx0037/msds-dds-6306-fls-1" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">github.com/jonx0037/msds-dds-6306-fls-1</a></p>
+          </div>
         </div>
       )
     }
